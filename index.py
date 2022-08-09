@@ -15,6 +15,7 @@ s3_client = boto3.client('s3')
 #     return kSigning
 
 def lambda_handler(event, context):
+    # Testing pipeline
     # ************* BUILD ENDPOINT AND PAYLOAD *************
     s3_bucket = event.get('Records', [])[0].get('s3', {}).get('bucket', {}).get('name', None)
     s3_key = event.get('Records', [])[0].get('s3', {}).get('object', {}).get('key', None)
