@@ -21,7 +21,7 @@ def lambda_handler(event, context):
                 'Name': s3_key,
             }
         },
-        MaxLabels=5,
+        MaxLabels=12,
     )
     print(json.dumps(rek_response))
     rek_labels = rek_response.get('Labels', []) or []
