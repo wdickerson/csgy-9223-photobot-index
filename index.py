@@ -23,6 +23,8 @@ def lambda_handler(event, context):
         },
         MaxLabels=12,
     )
+
+    print('LOG rekognition response:')
     print(json.dumps(rek_response))
     rek_labels = rek_response.get('Labels', []) or []
     rek_label_names = [
@@ -49,6 +51,7 @@ def lambda_handler(event, context):
     r = requests.put(endpoint, headers=headers, data=json.dumps(payload))
 
     # ************* SEND THE RESPONSE *************
+    # Primarily for testing, as this us de-coupled from client's request
     return {
         "statusCode": 200,
         "headers": { "Access-Control-Allow-Origin": '*' },
